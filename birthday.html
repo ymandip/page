@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For My lady Luck</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+    background:#000;
+    color:white;
+}
+
+/* Background Video */
+#bgVideo{
+    position:fixed;
+    top:0;
+    left:0;
+    min-width:90%;
+    min-height:10%;
+    object-fit:cover;
+    object-position: 60% 30%;
+    z-index:-1;
+}
+
+/* Dark Overlay */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    z-index:-1;
+}
+
+/* Main Container */
+.container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+/* Title */
+h1{
+    font-size:4rem;
+    margin-bottom:10px;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #ff4da6;
+    }
+    to{
+        text-shadow:0 0 30px #ff4da6,0 0 50px #ff4da6;
+    }
+}
+
+.love-text{
+    font-size:1.3rem;
+    max-width:700px;
+    margin-bottom:40px;
+}
+
+/* Countdown */
+.countdown{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.box{
+    width:140px;
+    height:140px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    box-shadow:0 8px 30px rgba(255,0,128,0.3);
+    transition:0.3s;
+}
+
+.box:hover{
+    transform:translateY(-8px) scale(1.05);
+}
+
+.number{
+    font-size:3rem;
+    font-weight:700;
+    color:#ff66b2;
+}
+
+.label{
+    font-size:1rem;
+    letter-spacing:2px;
+}
+
+/* Gallery */
+.gallery{
+    margin-top:60px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.gallery img{
+    width:220px;
+    height:280px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:0.4s;
+    border:3px solid rgba(255,255,255,0.3);
+}
+
+.gallery img:hover{
+    transform:scale(1.08);
+}
+
+/* Music Button */
+.music-btn{
+    margin-top:40px;
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:#ff4da6;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:600;
+}
+
+.music-btn:hover{
+    background:#ff1f8f;
+    transform:scale(1.05);
+}
+
+/* Floating Hearts */
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    color:#ff4da6;
+    animation:float linear infinite;
+    opacity:0.7;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) scale(0);
+    }
+    100%{
+        transform:translateY(-10vh) scale(1);
+    }
+}
+
+@media(max-width:768px){
+    h1{
+        font-size:2.5rem;
+    }
+
+    .box{
+        width:120px;
+        height:120px;
+    }
+
+    .number{
+        font-size:2.2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Video -->
+<video autoplay muted loop id="bgVideo">
+    <!-- CHANGE VIDEO BELOW -->
+    <source src=" class="zoom-out" controls type="video/mp4">
+    
+
+    
+
+
+</video>
+
+<div class="overlay"></div>
+
+<!-- Floating Hearts -->
+<div class="hearts" id="hearts"></div>
+
+<div class="container">
+
+    <h1>Happy Birthday Beautiful</h1>
+
+    <p class="love-text">
+        To the Girl so special and Virtuous ✨ <br>
+        Happy birthday Month beautiful .Counting down the moments until your special day arrives.
+    </p>
+
+    <!-- Countdown -->
+    <div class="countdown">
+
+        <div class="box">
+            <div class="number" id="days">28</div>
+            <div class="label">Days</div>
+        </div>
+
+        <div class="box">
+            <div class="number" id="hours">12</div>
+            <div class="label">Hours</div>
+        </div>
+
+        <div class="box">
+            <div class="number" id="minutes">00</div>
+            <div class="label">Minutes</div>
+        </div>
+
+        <div class="box">
+            <div class="number" id="seconds">00</div>
+            <div class="label">Seconds</div>
+        </div>
+
+    </div>
+
+    <!-- Music Button -->
+    <button class="music-btn" onclick="toggleMusic()">
+        🎵 Play Birthday Music
+    </button>
+
+    <!-- Gallery -->
+    <div class="gallery">
+
+        <!-- CHANGE IMAGES BELOW -->
+        <img src="MR-1.jpg" alt="">
+        <img src="MR-2.jpg" alt="">
+        <img src="MR-3.jpg" alt="">
+        <img src="MR-4.jpg" alt="">
+
+    </div>
+
+</div>
+
+<!-- Birthday Music -->
+<!-- CHANGE AUDIO BELOW -->
+<audio id="birthdaySong" loop>
+    <source src="demo.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+/* =========================
+   BIRTHDAY DATE
+   CHANGE THIS DATE
+========================= */
+
+// Format: YYYY-MM-DD HH:MM:SS
+const birthday = new Date("2026-06-13 00:00:00").getTime();
+
+/* Countdown Function */
+const countdown = setInterval(() => {
+
+    const now = new Date().getTime();
+    const distance = birthday - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    if(distance < 0){
+        clearInterval(countdown);
+
+        document.querySelector(".countdown").innerHTML = `
+            <h2 style="
+                font-size:3rem;
+                color:#ff66b2;
+                text-shadow:0 0 20px #ff66b2;
+            ">
+                🎉 Happy Birthday Month Khusi ❤️
+            </h2>
+        `;
+    }
+
+},1000);
+
+
+/* Music */
+const music = document.getElementById("birthdaySong");
+let playing = false;
+
+function toggleMusic(){
+
+    if(!playing){
+        music.play();
+        playing = true;
+        document.querySelector(".music-btn").innerHTML = "⏸ Pause Music";
+    }else{
+        music.pause();
+        playing = false;
+        document.querySelector(".music-btn").innerHTML = "🎵 Play Birthday Music";
+    }
+
+}
+
+
+/* Floating Hearts */
+const heartsContainer = document.getElementById("hearts");
+
+for(let i=0; i<40; i++){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+
+    heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+
+    heart.style.animationDelay = Math.random() * 5 + "s";
+
+    heartsContainer.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
